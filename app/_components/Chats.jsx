@@ -63,7 +63,7 @@ const Chats = () => {
   };
 
   return (
-     <div className={`h-screen ${isDarkMode ? "bg-black" : "bg-white"}`}>
+     <div className={`h-screen ${isDarkMode ? "bg-zinc-950" : "bg-white"}`}>
       {/* Navbar */}
       <div className="navbar mx-auto rounded-lg p-5 text-neutral-content">
         <h1 className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-black"}`}>
@@ -99,8 +99,8 @@ const Chats = () => {
         </div>
       </div>
 
-    
-      <div className="overflow-y-auto h-[calc(100vh-10rem)] p-4 w-full max-w-4xl mx-auto">
+      {/* Chat */}
+      <div className={`overflow-y-auto h-[calc(100vh-10rem)] p-4 w-full max-w-7xl mx-auto rounded-md shadow-md ${isDarkMode ?  "bg-zinc-900": "bg-gray-100" }  `}>
       {chatHistory.map((chat, index) => (
         <div
           key={index}
@@ -108,7 +108,7 @@ const Chats = () => {
         >
           {/* Avatar */}
           <div className="chat-image avatar">
-            <div className="w-10 rounded-full bg-gray-100">
+            <div className="w-10 rounded-full shadow-md mx-2 bg-gray-100">
               <img
                 alt={`${chat.sender} avatar`}
                 src={
@@ -120,25 +120,17 @@ const Chats = () => {
             </div>
           </div>
             
-          {/* Header */}
-          <div className={`chat-header ${isDarkMode ? "text-white": "text-black"}`}>
-            {chat.sender === "user" ? "You" : "AI Assistant"}
-            <time className="text-xs opacity-50 ml-2">{chat.time}</time>
-          </div>
-            
+
           {/* Chat Bubble */}
           <div
-            className={`chat-bubble ${
-              isDarkMode ? "bg-slate-800 text-white" : "bg-gray-100 text-black"
+            className={`shadow-md rounded-3xl p-2 text-md ${
+              isDarkMode ? "bg-zinc-800 text-white" : "bg-gray-100 text-black"
             }`}
           >
             {chat.text}
           </div>
         
-          {/* Footer */}
-          <div className={`chat-footer opacity-70 ${isDarkMode ? "text-white": "text-black"}" `}>
-            {chat.sender === "user" ? "Delivered" : "Seen"}
-          </div>
+
         </div>
       ))}
     </div>
@@ -149,8 +141,8 @@ const Chats = () => {
       
       <input
         type="text"
-        className={`input input-bordered w-full max-w-4xl ${
-          isDarkMode ? "bg-slate-800 text-white" : "bg-gray-100 text-black"
+        className={`input input-bordered w-full max-w-6xl ${
+          isDarkMode ? "bg-zinc-800 text-white" : "bg-gray-100 text-black"
         }`}
         placeholder="Start Chatting"
         value={userInput}
@@ -158,7 +150,7 @@ const Chats = () => {
       />
       <Button
         variant=""
-        className={`ml-4 p-6 rounded-btn ${isDarkMode ? "bg-slate-800 text-white  hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s "  : "bg-gray-100 text-blue hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s" } `}
+        className={`ml-4 p-6 rounded-btn ${isDarkMode ? "bg-zinc-800 text-white  hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s "  : "bg-gray-100 text-blue hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s" } `}
         onClick={handleUserInput}
         disabled={isLoading}
       >
