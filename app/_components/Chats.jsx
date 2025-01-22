@@ -123,7 +123,7 @@ const Chats = () => {
 
           {/* Chat Bubble */}
           <div
-            className={`shadow-md rounded-3xl p-2 text-md ${
+            className={`shadow-md rounded-3xl p-2 text-md text-pretty ${
               isDarkMode ? "bg-zinc-800 text-white" : "bg-gray-100 text-black"
             }`}
           >
@@ -141,23 +141,40 @@ const Chats = () => {
       
       <input
         type="text"
-        className={`input input-bordered w-full max-w-6xl ${
-          isDarkMode ? "bg-zinc-800 text-white" : "bg-gray-100 text-black"
+        className={`input input-bordered w-full max-w-6xl rounded-full px-4 py-2 ${
+          isDarkMode
+            ? "bg-zinc-800 text-white border-zinc-700 focus:border-blue-500"
+            : "bg-gray-100 text-black border-gray-300 focus:border-blue-400"
         }`}
-        placeholder="Start Chatting"
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-      />
-      <Button
-        variant=""
-        className={`ml-4 p-6 rounded-btn ${isDarkMode ? "bg-zinc-800 text-white  hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s "  : "bg-gray-100 text-blue hover:bg-blue-600 hover:text-white transition-all ease-in-out 500s" } `}
-        onClick={handleUserInput}
-        disabled={isLoading}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-        </svg>
-      </Button>
+        placeholder="Type your message..."
+                value={userInput}
+                onChange={(e) => setUserInput(e.target.value)}
+              />
+       <Button
+          className={`ml-4 p-5 rounded-full transition-all ${
+            isDarkMode
+              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg"
+              : "bg-blue-400 text-white hover:bg-blue-500 shadow-md"
+          }`}
+          onClick={handleUserInput}
+          disabled={isLoading}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="h-5 w-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+            />
+          </svg>
+        </Button>
+
     
 
       
